@@ -1,6 +1,3 @@
-
-package PSTU_CGPA;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -245,6 +242,26 @@ class LUDU {
 		g.setFont(new Font("MV Boli", Font.BOLD, 30));
         g.drawString("Press enter to roll dice", 550,150);
         g.drawString("Click on the token to move", 550,200);
+    }
+}
+
+class Main1 {
+    Pawn[] pa; // Array of pawns for the player
+    int coin; // Number of pawns that have reached the end
+
+    public Main1(int height, int width) {
+        pa = new Pawn[4]; // Assuming each player has 4 pawns
+        for (int i = 0; i < 4; i++) {
+            pa[i] = new Pawn(height, width); // Initialize each pawn
+        }
+        coin = 0; // Initialize the number of pawns that have reached the end
+    }
+
+    // Method to draw pawns for the player
+    public void draw(Graphics2D g, int play) {
+        for (int i = 0; i < 4; i++) {
+            pa[i].draw(g, Path.initialx[play][i], Path.initialy[play][i], play);
+        }
     }
 }
 
